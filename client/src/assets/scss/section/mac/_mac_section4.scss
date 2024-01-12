@@ -1,0 +1,91 @@
+.window.mac {
+    #section4 {
+        padding: 20% 0 10%;
+        height: 4000px;
+
+        .title {
+            font-family: "GmarketSans";
+            text-align: left;
+            font-size: 8vw;
+            line-height: 1;
+            text-transform: uppercase;
+            font-weight: 900;
+            position: relative;
+            margin-bottom: 10%;
+            padding: 0 5%;
+
+            .t1 {
+                padding-left: 14vw;
+            }
+
+            .img {
+                width: 12vw;
+                height: 6.6vw;
+                background-image: url(https://source.unsplash.com/500x500/?color);
+                background-size: cover;
+                background-position: center;
+                display: block;
+                position: absolute;
+                left: 5.5%;
+                top: 0.6vw;
+                border-radius: 10px;
+                background-color: #000;
+            }
+
+            .desc {
+                font-family: "IropkeBatang";
+                line-height: 1.6;
+                font-size: 16px;
+                color: #202020;
+                font-weight: normal;
+                padding-left: 0.5vw;
+                text-decoration: underline;
+                text-underline-position: under;
+            }
+
+            .desc2 {
+                padding-top: 30px;
+                font-family: "IropkeBatang";
+                line-height: 1.6;
+                font-size: 16px;
+                color: #202020;
+                font-weight: normal;
+                padding-left: 0.5vw;
+            }
+        }
+    }
+
+    .about-wrap {
+        padding: 0 5%;
+        display: flex;
+        justify-content: space-between;
+
+        .left {
+            width: 50%;
+            padding-bottom: 60%;
+            background-image: url(../../../img/me.jpg);
+            background-size: cover;
+            background-position: center center;
+        }
+
+        .right {
+            width: 45%;
+
+            dl {
+            }
+
+            dt {
+                font-family: "Josefin Slab";
+                font-weight: bold;
+                font-size: 24px;
+                margin-bottom: 20px;
+            }
+
+            dd {
+                font-family: "IropkeBatang";
+                margin-bottom: 50px;
+                line-height: 1.7;
+            }
+        }
+    }
+}

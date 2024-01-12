@@ -1,0 +1,130 @@
+#footer {
+    padding: 100px 50px 0 50px;
+    border-top: 1px solid var(--line-color);
+}
+
+.footer1 {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--line-color);
+    padding: 30px 0 80px;
+
+    .title {
+        font-size: 4vw;
+        width: 50%;
+    }
+
+    .link {
+        .box__wrap {
+            font-size: 2vw;
+            margin-top: 30px;
+
+            a {
+                position: relative;
+
+                &:hover {
+                    color: black;
+
+                    &::before {
+                        transform: scaleX(0);
+                        transform-origin: right;
+                        transition-delay: 0s;
+                    }
+
+                    &::after {
+                        transform: scaleX(0);
+                        transform-origin: right;
+                        transition-delay: 0.1s;
+                    }
+                }
+
+                &::before,
+                &::after {
+                    content: "";
+                    position: absolute;
+                    background-color: #000;
+                    height: 3px;
+                    width: 100%;
+                    left: 0;
+                    top: 130%;
+                    transform: scaleX(1);
+                    transform-origin: left;
+                    transition: transform 0.55s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+                }
+            }
+        }
+
+        &:hover .copyBox {
+            transform: scale(1);
+        }
+    }
+
+    .copyBox {
+        background-color: #000;
+        color: #fff;
+        width: 13vw;
+        height: 100px;
+        position: absolute;
+        text-align: center;
+        font-size: 1.1vw;
+        line-height: 100px;
+        border-radius: 15px;
+        top: -90px;
+        left: 27%;
+        cursor: pointer;
+        transform: scale(0);
+        transition: all 0.3s;
+    }
+}
+
+.footer2 {
+    display: flex;
+    padding: 50px 20px;
+
+    .socials {
+        padding-left: 100px;
+    }
+
+    div {
+        .tit {
+            color: black;
+            padding: 0;
+        }
+
+        p {
+            font-size: 0.95vw;
+            color: var(--desc-color);
+            text-align: start;
+            padding: 5px 3px;
+            transition: all 0.2s;
+
+            &.t1:hover {
+                color: var(--black100);
+            }
+        }
+    }
+}
+
+.footer3 {
+    display: flex;
+    padding-top: 50px;
+
+    p {
+        text-align: end;
+        font-size: 1.5vw;
+        line-height: 6.5;
+    }
+
+    .mainTit {
+        font-size: 9vw;
+        font-weight: bold;
+        width: 80%;
+        text-align: start;
+        line-height: 1.5;
+    }
+
+    .BTT {
+        width: 15%;
+        margin-top: 75px;
+    }
+}
