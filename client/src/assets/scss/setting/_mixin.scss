@@ -1,0 +1,30 @@
+@mixin link-hover {
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+        background-color: var(--desc-color);
+        height: 1px;
+        width: 100%;
+        left: 0;
+        right: 0;
+        top: 103%;
+        transform: scaleX(1);
+        transform-origin: left;
+        transition: transform 0.55s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+    }
+
+    &:hover {
+        &::before {
+            transform: scaleX(0);
+            transform-origin: right;
+            transition-delay: 0s;
+        }
+
+        &::after {
+            transform: scaleX(0);
+            transform-origin: right;
+            transition-delay: 0.1s;
+        }
+    }
+}

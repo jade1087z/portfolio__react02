@@ -8,14 +8,16 @@
         line-height: 1;
         text-transform: uppercase;
         font-weight: 900;
-        position: relative;
         margin-bottom: 10%;
-        padding: 0 0 0 2.5%;
+        // padding: 0 0 0 2.5%;
+        padding-left: 36px;
 
         .t1 {
             padding-left: 13vw;
         }
-
+        .sec3__title {
+            position: relative;
+        }
         .img {
             width: 12vw;
             height: 6.6vw;
@@ -24,7 +26,7 @@
             background-position: center;
             display: block;
             position: absolute;
-            left: 3%;
+            left: 0.6vw;
             top: 0vw;
             border-radius: 10px;
             background-color: #000;
@@ -98,7 +100,6 @@
 
         .tit {
             width: 50%;
-
             .h4 {
                 font-size: 4vw;
                 margin-top: -0.8vw;
@@ -127,17 +128,93 @@
 
                 .desc {
                     width: 40%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
                     line-height: 1.6;
                     margin-left: 4%;
-                    margin-top: 60px;
+                    margin-top: 50px;
                     font-family: "IropkeBatang";
 
                     h4 {
-                        text-decoration: underline;
-                        text-underline-position: under;
                         margin-bottom: 10px;
+
+                        a {
+                            pointer-events: auto;
+                            position: relative;
+                            padding: 3px;
+                            @include link-hover;
+                        }
+                    }
+                    .link {
+                        margin-bottom: 20px;
+
+                        a {
+                            pointer-events: auto;
+                            position: relative;
+                            @include link-hover;
+                        }
                     }
                 }
+            }
+        }
+    }
+}
+
+@media (max-width: 1000px) {
+    .site__wrap {
+        .site {
+            .img-wrap {
+                flex-direction: column;
+                .img {
+                    width: 100% !important;
+                }
+                .desc {
+                    width: 100% !important;
+                    margin-top: 20px !important;
+                    margin-left: 0 !important;
+                    .link {
+                        margin-top: 10px !important;
+                    }
+                }
+            }
+        }
+    }
+}
+@media (max-width: 700px) {
+    #section3 {
+        padding: 120px 0px 50px 0px;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+
+        .title {
+            display: flex;
+            text-align: center;
+            flex-direction: column;
+            align-items: center;
+
+            p {
+                display: none;
+            }
+        }
+
+        .site__wrap {
+            .site {
+                flex-direction: column;
+                padding-top: 10%;
+
+                .num { display: none;}
+                .subTitle {
+                    text-align: left;
+                    width: 100%;
+                }
+                .tit {
+                    width: 100%;
+                    text-align: left;
+                    margin-top: 30px;
+                }
+                
             }
         }
     }
