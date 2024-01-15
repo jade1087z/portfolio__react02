@@ -1,12 +1,125 @@
-import React from "react";
-
+import React, { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 const Section02 = () => {
+    // const ref1 = useRef(null);
+    // const ref2 = useRef(null);
+    // const ref3 = useRef(null);
+    // const ref4 = useRef(null);
+    // const ref5 = useRef(null);
+    // const ref6 = useRef(null);
+    // const slider = useRef(null);
+
+    // let xPercent = 0;
+
+    // let direction = -1;
+
+    // useEffect(() => {
+    //     gsap.registerPlugin(ScrollTrigger);
+
+    //     gsap.to(slider.current, {
+    //         scrollTrigger: {
+    //             trigger: document.documentElement,
+    //             scrub: 1,
+    //             start: 0,
+    //             end: window.innerHeight,
+    //             onUpdate: (e) => (direction = e.direction * -1),
+    //         },
+    //         x: "-500px",
+    //     });
+    //     requestAnimationFrame(animate);
+    // }, []);
+
+    // const animate = () => {
+    //     if (xPercent <= -100 && direction === -1) {
+    //         xPercent = 0;
+    //     } else if (xPercent >= 0 && direction === 1) {
+    //         xPercent = -100;
+    //     }
+
+    //     gsap.to(
+    //         [
+    //             ref1.current,
+    //             ref2.current,
+    //             ref3.current,
+    //             ref4.current,
+    //             ref5.current,
+    //             ref6.current,
+    //         ],
+    //         {
+    //             xPercent: "+=100",
+    //             modifiers: {
+    //                 xPercent: function (xPercent) {
+    //                     return gsap.utils.wrap(-100, 0, parseFloat(xPercent));
+    //                 },
+    //             },
+    //             repeat: -1,
+    //             ease: "power2.inOut",
+    //         }
+    //     );
+    //     requestAnimationFrame(animate);
+    //     xPercent += 0.1; // 고정값으로 변경
+    // };
+    const wrap1 = useRef(null);
+    const wrap2 = useRef(null);
+    const slider = useRef(null);
+
+    let xPercent = 0;
+
+    let direction = -1;
+
+    useEffect(() => {
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.to(slider.current, {
+            scrollTrigger: {
+                trigger: document.documentElement,
+                scrub: 1,
+                start: 0,
+                end: window.innerHeight,
+                onUpdate: (e) => (direction = e.direction * -1),
+            },
+            x: "-500px",
+        });
+
+        gsap.to([wrap1.current, wrap2.current], {
+            xPercent: direction * 100,
+            modifiers: {
+                xPercent: function (xPercent) {
+                    return gsap.utils.wrap(-100, 0, parseFloat(xPercent));
+                },
+            },
+            repeat: -1,
+            ease: "none",
+            duration: 15, // 이 값을 늘려 애니메이션 속도를 줄임
+        });
+
+        requestAnimationFrame(animate);
+    }, []);
+
+    const animate = () => {
+        if (xPercent <= -100 && direction === -1) {
+            xPercent = 0;
+        } else if (xPercent >= 0 && direction === 1) {
+            xPercent = -100;
+        }
+        xPercent += (direction * 0.05) / 60;
+
+        requestAnimationFrame(animate);
+    };
     return (
         <div id="section2">
-            <div className="imgWrap">
-                <div></div>
-                <div></div>
-                <div></div>
+            <div className="imgWrap" ref={slider}>
+                <div className="wrap" ref={wrap1}>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div className="wrap" ref={wrap2}>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
             </div>
             <div className="text-title">
                 <span className="svg">

@@ -1,14 +1,7 @@
 import React from "react";
 import Data04 from "./Data04";
 import { Link } from "react-router-dom";
-import axios from "axios";
 const Section04 = () => {
-    let body = {
-        title: "t",
-    };
-    axios.post("/api/post/write", body).then((res) => {
-        console.log(res);
-    });
     return (
         <div id="section4">
             <div className="title">

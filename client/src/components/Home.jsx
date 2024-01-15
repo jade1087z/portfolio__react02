@@ -3,6 +3,8 @@ import Section01 from "./section01/Section01";
 import Section04 from "./section04/Section04";
 import Section03 from "./section03/Section03";
 import Section02 from "./section02/Section02";
+import Footer from "./Footer";
+import Section05 from "./section05/Section05";
 
 const Home = () => {
     const getOS = () => {
@@ -24,6 +26,8 @@ const Home = () => {
             <Section02 />
             <Section03 />
             <Section04 />
+            <Section05 />
+            <Footer />
         </div>
     );
 };
