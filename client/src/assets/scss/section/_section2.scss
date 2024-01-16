@@ -54,12 +54,15 @@
         position: relative;
 
         p {
-            padding: 3% 5% 0 10%;
+            padding: 0 5% 0 10%;
             font-family: "GmarketSans";
             font-weight: 900;
             font-size: 4vw;
             line-height: 1.2;
             text-align: right;
+        }
+        .desc1 {
+            padding: 3% 5% 3% 10%;
         }
 
         .svg {
@@ -79,14 +82,13 @@
             font-size: 16px;
             color: #202020;
             font-weight: normal;
-
-            i {
-                font-style: normal;
-                text-decoration: underline;
-                text-underline-position: under;
-                display: block;
-                margin-bottom: 20px;
-            }
+        }
+        .desc2.d0 {
+            font-style: normal;
+            text-decoration: underline;
+            text-underline-position: under;
+            display: block;
+            padding-bottom: 20px;
         }
     }
 }

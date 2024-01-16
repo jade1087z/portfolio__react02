@@ -3,11 +3,13 @@ const router = express.Router();
 // 스키마
 
 // 스키마
-const { Counter } = require("../model/Counter.js");
-const { Post } = require("../model/Post.js");
+const { Counter } = require("../Model/Counter.js");
+const { Post } = require("../Model/Post.js");
 
 router.post("/write", (req, res) => {
     let temp = {
+        name: req.body.name,
+        pass: req.body.pass,
         content: req.body.content,
     };
 

@@ -1,12 +1,11 @@
 #section4 {
     padding: 20% 0 10%;
-    height: 4000px;
 
     .title {
         font-family: "GmarketSans";
         text-align: left;
         font-size: 8vw;
-        line-height: 1;
+        line-height: 1.05;
         text-transform: uppercase;
         font-weight: 900;
         margin-bottom: 10%;
@@ -17,6 +16,10 @@
         }
         .sec4__title {
             position: relative;
+            padding-bottom: 30px;
+        }
+        .lineMask.ab {
+            @include lineMask-ab;
         }
         .img {
             width: 12vw;
@@ -25,9 +28,9 @@
             background-size: cover;
             background-position: center;
             display: block;
-            position: absolute;
-            left: 0.6vw;
-            top: 0vw;
+            // position: absolute;
+            // left: 0.6vw;
+            // top: 0vw;
             border-radius: 10px;
             background-color: #000;
         }
@@ -44,7 +47,7 @@
         }
 
         .desc2 {
-            padding-top: 30px;
+            // padding-top: 30px;
             font-family: "IropkeBatang";
             line-height: 1.6;
             font-size: 16px;
@@ -59,7 +62,7 @@
     padding: 0 3%;
     display: flex;
     justify-content: space-between;
-        position: relative;
+    position: relative;
     .left {
         width: 50%;
         padding-bottom: 60%;
@@ -97,17 +100,16 @@
                 font-weight: bold;
                 position: relative;
                 padding-bottom: 5px;
-                @include link-hover
+                @include link-hover;
             }
         }
-         
     }
 }
 
 @media (max-width: 700px) {
     #section4 {
         padding: 120px 2px 50px 20px;
-      
+
         .title {
             display: flex;
             text-align: center;

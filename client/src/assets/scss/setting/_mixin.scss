@@ -28,3 +28,20 @@
         }
     }
 }
+
+@mixin lineMask-ab-sec1 {
+    overflow: hidden;
+    width: 13vw;
+    height: 7.5vw;
+    position: absolute;
+    top: 0.1vw;
+    left: 0vw;
+}
+@mixin lineMask-ab {
+    overflow: hidden;
+    width: 13vw;
+    height: 6.6vw;
+    position: absolute;
+    top: 0.2vw;
+    left: 0.6vw;
+}

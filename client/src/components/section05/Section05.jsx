@@ -1,6 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import addPost from "./addPost";
+import list from "./list";
 
 const Section05 = () => {
+    const [desc, setDesc] = useState();
+    const [name, setName] = useState();
+    const [pass, setPass] = useState();
+    const [postList, setPostList] = useState([]);
+
+    useEffect(() => {
+        list(setPostList);
+    }, []);
+
     return (
         <div id="section5">
             <div className="title">
@@ -165,10 +176,31 @@ const Section05 = () => {
                     </div>
                 </div>
                 <div className="comment__input">
-                    <input type="text" placeholder="이름" />
-                    <input type="text" placeholder="비밀번호" />
-                    <input type="text" placeholder="댓글" />
-                    <button>댓글 쓰기</button>
+                    <input
+                        type="text"
+                        placeholder="이름"
+                        onChange={(e) => setName(e.target.value)}
+                        value={name}
+                    />
+                    <input
+                        type="text"
+                        placeholder="비밀번호"
+                        onChange={(e) => setPass(e.target.value)}
+                        value={pass}
+                    />
+                    <input
+                        type="text"
+                        placeholder="댓글"
+                        onChange={(e) => setDesc(e.target.value)}
+                        value={desc}
+                    />
+                    <button
+                        onClick={(e) =>
+                            addPost(e, desc, pass, name, setPostList)
+                        }
+                    >
+                        댓글 쓰기
+                    </button>
                 </div>
             </div>
         </div>

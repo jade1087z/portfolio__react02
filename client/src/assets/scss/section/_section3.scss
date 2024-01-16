@@ -1,11 +1,11 @@
 #section3 {
-    padding: 20% 0 10%;
+    padding: 20% 0 0%;
 
     .title {
         font-family: "GmarketSans";
         text-align: left;
         font-size: 8vw;
-        line-height: 1;
+        line-height: 1.05;
         text-transform: uppercase;
         font-weight: 900;
         margin-bottom: 10%;
@@ -18,6 +18,10 @@
         .sec3__title {
             position: relative;
         }
+
+        .lineMask.ab {
+            @include lineMask-ab;
+        }
         .img {
             width: 12vw;
             height: 6.6vw;
@@ -25,9 +29,6 @@
             background-size: cover;
             background-position: center;
             display: block;
-            position: absolute;
-            left: 0.6vw;
-            top: 0vw;
             border-radius: 10px;
             background-color: #000;
         }
@@ -84,12 +85,16 @@
             z-index: 2000;
         }
 
+        .lineMask.num {
+            display: inline-block;
+        }
         .num {
             width: 15vw;
             font-size: 15vw;
             font-family: "GmarketSans";
             font-weight: 900;
-            line-height: 0.861;
+            // line-height: 0.861;
+            line-height: 1.05;
         }
 
         .subTitle {
