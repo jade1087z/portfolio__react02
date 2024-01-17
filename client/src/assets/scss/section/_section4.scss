@@ -10,6 +10,7 @@
         font-weight: 900;
         margin-bottom: 10%;
         padding: 0 0 0 2.5%;
+        position: relative;
 
         .t1 {
             padding-left: 14vw;
@@ -34,26 +35,29 @@
             border-radius: 10px;
             background-color: #000;
         }
+        .lineMask.d1 {
+            position: absolute;
+            // top: 103%;
+            bottom: -20px;
+        }
+
+        .lineMask.d2 {
+            position: absolute;
+            bottom: -50px;
+        }
 
         .desc {
             font-family: "IropkeBatang";
             line-height: 1.6;
-            font-size: 16px;
+            font-size: 1rem;
             color: #202020;
             font-weight: normal;
             padding-left: 0.5vw;
-            text-decoration: underline;
-            text-underline-position: under;
         }
 
-        .desc2 {
-            // padding-top: 30px;
-            font-family: "IropkeBatang";
-            line-height: 1.6;
-            font-size: 16px;
-            color: #202020;
-            font-weight: normal;
-            padding-left: 0.5vw;
+        .desc.d1 {
+            text-decoration: underline;
+            text-underline-position: under;
         }
     }
 }
@@ -105,7 +109,13 @@
         }
     }
 }
-
+@media (max-width: 900px) {
+    #section4 {
+        .lineMask.d2 {
+            bottom: -70px !important;
+        }
+    }
+}
 @media (max-width: 700px) {
     #section4 {
         padding: 120px 2px 50px 20px;
@@ -117,10 +127,9 @@
             align-items: center;
 
             .t1 {
-                padding-left: 8vw;
             }
-            p {
-                display: none;
+            .desc {
+                display: none !important;
             }
             .img {
                 left: -5vw;

@@ -2,11 +2,13 @@ import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import Data03 from "./Data03";
 import { useInView, motion } from "framer-motion";
+import text from "./text";
+import desc from "./desc";
 
 //  리액트 훅은 반복, 조건, 중첩 함수 내에서 호출 불가 ->
 //  훅의 호출 순서 보장
 
-const Section03 = () => {
+const Section03 = ({ animation0, animation, animation2 }) => {
     const body3 = useRef(null);
     const stickyRefs = Data03.map(() => React.createRef());
     const isInView = useInView(body3, { once: true, marginTop: "20px" });
@@ -52,79 +54,57 @@ const Section03 = () => {
             window.removeEventListener("scroll", handleScroll);
         };
     }, []);
+    const [firstAnime, setFirstAnime] = useState(false);
 
-    const animation = {
-        initial: { y: "100%" },
-
-        enter: () => ({
-            y: "0",
-            transition: {
-                duration: 0.95,
-                ease: [0.33, 1, 0.68, 1],
-                delay: 0.8,
-            },
-        }),
+    const handleFirstAnimationComplete = () => {
+        console.log("complete");
+        setFirstAnime(true);
     };
-
     return (
         <div id="section3">
             <div className="title">
                 <div className="sec3__title lineMask" ref={body3}>
-                    <div className="lineMask ab">
-                        <motion.p
-                            variants={animation}
-                            initial="initial"
-                            animate={isInView ? "enter" : ""}
-                            className="img"
-                        ></motion.p>
-                    </div>
-                    <div className="lineMask">
-                        <motion.p
-                            className="split t1"
-                            variants={animation}
-                            initial="initial"
-                            animate={isInView ? "enter" : ""}
-                        >
-                            In Progress,
-                        </motion.p>{" "}
-                    </div>
-                    <div className="lineMask">
-                        <motion.p
-                            className="split t2"
-                            variants={animation}
-                            initial="initial"
-                            animate={isInView ? "enter" : ""}
-                        >
-                            Compilation
-                        </motion.p>{" "}
-                    </div>
-                </div>
-                <div className="lineMask">
-                    <motion.p
-                        variants={animation}
-                        initial="initial"
-                        animate={isInView ? "enter" : ""}
-                        className="desc"
-                    >
-                        프론트앤드 포트폴리오를 위한 작업 목록입니다.
-                    </motion.p>
-                </div>
+                    {firstAnime && (
+                        <div className="lineMask ab">
+                            <motion.p
+                                variants={animation0}
+                                initial="initial"
+                                animate={isInView ? "enter" : ""}
+                                className="img"
+                            ></motion.p>
+                        </div>
+                    )}
 
-                <div className="lineMask">
-                    <motion.p
-                        className="desc2"
-                        variants={animation}
-                        initial="initial"
-                        animate={isInView ? "enter" : ""}
-                    >
-                        php를 시작으로, React.js, Node.js를 활용해 팀프로젝트에
-                        참여하며 웹 사이트를 제작해보았습니다.
-                        <br />
-                        API가 무엇인지, 그리고 API와 통신하려면 어떤 방식을
-                        활용하는지 배울 수 있었고 가져온 데이터를 어떻게 하면
-                        효율적으로 보여줄 수 있는지 경험했습니다.
-                    </motion.p>
+                    {text.map((text, key) => (
+                        <div className="lineMask" key={key}>
+                            <motion.p
+                                className={`split t${key + 1}`}
+                                variants={animation}
+                                initial="initial"
+                                animate={isInView ? "enter" : ""}
+                                custom={key}
+                                onAnimationComplete={() =>
+                                    handleFirstAnimationComplete()
+                                }
+                            >
+                                {text}
+                            </motion.p>{" "}
+                        </div>
+                    ))}
                 </div>
+                {firstAnime &&
+                    desc.map((desc, key) => (
+                        <div className={`lineMask d${key + 1}`} key={key}>
+                            <motion.p
+                                className={`desc d${key + 1}`}
+                                variants={animation2}
+                                initial="initial"
+                                animate={isInView ? "enter" : ""}
+                            >
+                                {desc}
+                            </motion.p>
+                        </div>
+                    ))}
             </div>
 
             <div className="site__wrap">
@@ -168,13 +148,19 @@ const Section03 = () => {
                                     </div>
                                     <div className="desc lineMask">
                                         <h4>
-                                            <Link to={data.siteLink}>
+                                            <Link
+                                                to={data.siteLink}
+                                                target="_blank"
+                                            >
                                                 {data.descLink}
                                             </Link>
                                         </h4>
                                         <p> {data.mainP}</p>
                                         <div className="link">
-                                            <Link to={data.gitLink}>
+                                            <Link
+                                                to={data.gitLink}
+                                                target="_blank"
+                                            >
                                                 View on Git
                                             </Link>
                                         </div>

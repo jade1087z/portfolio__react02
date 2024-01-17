@@ -34,7 +34,7 @@
     width: 13vw;
     height: 7.5vw;
     position: absolute;
-    top: 0.1vw;
+    top: 0.2vw;
     left: 0vw;
 }
 @mixin lineMask-ab {
@@ -44,4 +44,12 @@
     position: absolute;
     top: 0.2vw;
     left: 0.6vw;
+}
+@mixin lineMask-ab-sec5 {
+    overflow: hidden;
+    width: 13vw;
+    height: 6.6vw;
+    position: absolute;
+    top: 0.2vw;
+    left: 0.3vw;
 }
