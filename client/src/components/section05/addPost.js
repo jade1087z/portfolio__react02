@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const addPost = async (e, desc, pass, name, setPostList) => {
+const addPost = async (e, desc, pass, name, setPostList, setSortPostList) => {
     e.preventDefault();
 
     if (desc && pass && name) {
@@ -17,6 +17,14 @@ const addPost = async (e, desc, pass, name, setPostList) => {
                         res.data.newPost,
                         ...prevPosts,
                     ]);
+                    const sortedPostList = [...res.data.postList]
+                    .sort((a, b) => {
+                        if (a.postNum < b.postNum) return -1;
+                        if (a.postNum > b.postNum) return 1;
+                        return 0;
+                    })
+                    .reverse();
+                setSortPostList(sortedPostList);
                     alert("댓글 작성이 완료되었습니다.");
                 } else {
                     console.log("axios실패");

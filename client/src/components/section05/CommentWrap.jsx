@@ -14,9 +14,11 @@ const CommentWrap = () => {
     const [pass, setPass] = useState();
     const [postList, setPostList] = useState([]);
     const [sortPostList, setSortPostList] = useState([]);
+    const [newPost, setNewPost] = useState([]);
 
     useEffect(() => {
         list(setPostList, setSortPostList);
+
     }, []);
     //      list(setPostList, setSortPostList); 이 두값이 바뀌는 순간을 훅을 걸어야함
     console.log(sortPostList);
@@ -108,29 +110,34 @@ const CommentWrap = () => {
             </Swiper>
 
             <div className="comment__input">
-                <input
-                    type="text"
-                    placeholder="이름"
-                    onChange={(e) => setName(e.target.value)}
-                    value={name}
-                />
-                <input
-                    type="text"
-                    placeholder="비밀번호"
-                    onChange={(e) => setPass(e.target.value)}
-                    value={pass}
-                />
-                <input
-                    type="text"
-                    placeholder="댓글"
-                    onChange={(e) => setDesc(e.target.value)}
-                    value={desc}
-                />
-                <button
-                    onClick={(e) => addPost(e, desc, pass, name, setPostList)}
-                >
-                    댓글 쓰기
-                </button>
+                <div className="commentWrap">
+                    <input
+                        type="text"
+                        placeholder="이름"
+                        onChange={(e) => setName(e.target.value)}
+                        value={name}
+                    />
+                    <input
+                        type="text"
+                        placeholder="비밀번호"
+                        onChange={(e) => setPass(e.target.value)}
+                        value={pass}
+                    />
+                </div>
+                <div className="commentWrap bottom">
+                    <input
+                        type="text"
+                        placeholder="댓글"
+                        onChange={(e) => setDesc(e.target.value)}
+                        value={desc}
+                    />
+                    <button
+                        onClick={(e) => addPost(e, desc, pass, name, setPostList, setSortPostList)}
+                    >
+                        댓글 쓰기
+                    </button>
+                </div>
+
             </div>
         </div>
     );

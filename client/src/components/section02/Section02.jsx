@@ -76,8 +76,9 @@ const Section02 = ({ animation }) => {
                     direction = e.direction * -1; // direction 값을 업데이트
                 },
             },
-            x: "-800px",
+            x: "-550px", // 애니메가 끊기는 부분 고치기 --> 이쪽임
         });
+
 
         gsap.to([wrap1.current, wrap2.current], {
             xPercent: direction * 100,
@@ -88,9 +89,10 @@ const Section02 = ({ animation }) => {
             },
             repeat: -1,
             ease: "none",
-            duration: 20,
+            duration: 25,
         });
-
+       
+        
         requestAnimationFrame(animate);
     }, []);
 
@@ -100,7 +102,7 @@ const Section02 = ({ animation }) => {
         } else if (xPercent >= 0 && direction === 1) {
             xPercent = -100;
         }
-        xPercent += (direction * 0.05) / 60;
+        xPercent += (direction * 0.05) / 30;
 
         requestAnimationFrame(animate);
     };

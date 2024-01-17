@@ -61,13 +61,12 @@
 }
 
 .comment__input {
-    text-align: center;
+    display: flex;
+    justify-content: center;
     padding: 50px;
-
+    
     input,
     button {
-        border: 1px solid #ccc;
-        font-family: "IropkeBatang";
         padding: 3px 10px;
         margin-right: 3px;
     }
@@ -78,8 +77,28 @@
         .lineMask.d2 {
             bottom: -50px !important;
         }
+
+        .comment__input {
+            flex-direction: column !important;
+            padding: 0px;
+
+            .commentWrap.bottom {
+                margin-top: 5px !important;
+                input {
+                    
+                }
+                button {
+                   
+                }
+            }
+            input,
+            button {
+                margin-right: 3px !important;
+            }
+        }
     }
 }
+
 @media (max-width: 700px) {
     #section5 {
         padding: 120px 0px 50px 0px;
