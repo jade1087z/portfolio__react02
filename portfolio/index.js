@@ -6,12 +6,14 @@ const app = express();
 const port = 5050;
 
 // DB, Firebase, navercloud key
-const config = require("./config/key.js");
-app.use(express.static(path.join(__dirname, "../portt/build")));
+const config = require("./server/config/key.js");
+
+app.use(express.static(path.join(__dirname, "./client/build")));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // router
-app.use("/api/post", require("./router/post.js"));
+app.use("/api/post", require("./server/router/post.js"));
 
 app.listen(port, () => {
     mongoose
@@ -25,8 +27,9 @@ app.listen(port, () => {
         });
 });
 app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "../portt/build/index.html"));
+    res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
+
 app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "../portt/build/index.html"));
+    res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
