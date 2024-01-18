@@ -14,58 +14,14 @@ const CommentWrap = () => {
     const [pass, setPass] = useState();
     const [postList, setPostList] = useState([]);
     const [sortPostList, setSortPostList] = useState([]);
-    const [newPost, setNewPost] = useState([]);
 
     useEffect(() => {
         list(setPostList, setSortPostList);
-
     }, []);
     //      list(setPostList, setSortPostList); 이 두값이 바뀌는 순간을 훅을 걸어야함
     console.log(sortPostList);
     return (
         <div className="comment__wrap">
-            <Swiper
-                slidesPerView={1}
-                spaceBetween={10}
-                className="mySwiper"
-                breakpoints={{
-                    640: {
-                        slidesPerView: 2,
-                        spaceBetween: 10,
-                    },
-                    768: {
-                        slidesPerView: 3,
-                        spaceBetween: 10,
-                    },
-                    1024: {
-                        slidesPerView: 4,
-                        spaceBetween: 10,
-                    },
-                    1600: {
-                        slidesPerView: 5,
-                        spaceBetween: 10,
-                    },
-                    1900: {
-                        slidesPerView: 6,
-                        spaceBetween: 10,
-                    },
-                }}
-            >
-                <div className="comment__inner">
-                    {sortPostList &&
-                        sortPostList.map((sortpost, key) => (
-                            <SwiperSlide key={key}>
-                                <div className="comment">
-                                    <div className="author">
-                                        <em>{sortpost.name}</em>{" "}
-                                        <span>{sortpost.formattedDate}</span>
-                                    </div>
-                                    <p>{sortpost.content}</p>
-                                </div>
-                            </SwiperSlide>
-                        ))}
-                </div>
-            </Swiper>
             <Swiper
                 slidesPerView={1}
                 spaceBetween={10}
@@ -108,7 +64,48 @@ const CommentWrap = () => {
                         ))}
                 </div>
             </Swiper>
-
+            <Swiper
+                slidesPerView={1}
+                spaceBetween={10}
+                className="mySwiper"
+                breakpoints={{
+                    640: {
+                        slidesPerView: 2,
+                        spaceBetween: 10,
+                    },
+                    768: {
+                        slidesPerView: 3,
+                        spaceBetween: 10,
+                    },
+                    1024: {
+                        slidesPerView: 4,
+                        spaceBetween: 10,
+                    },
+                    1600: {
+                        slidesPerView: 5,
+                        spaceBetween: 10,
+                    },
+                    1900: {
+                        slidesPerView: 6,
+                        spaceBetween: 10,
+                    },
+                }}
+            >
+                <div className="comment__inner">
+                    {sortPostList &&
+                        sortPostList.map((sortpost, key) => (
+                            <SwiperSlide key={key}>
+                                <div className="comment">
+                                    <div className="author">
+                                        <em>{sortpost.name}</em>{" "}
+                                        <span>{sortpost.formattedDate}</span>
+                                    </div>
+                                    <p>{sortpost.content}</p>
+                                </div>
+                            </SwiperSlide>
+                        ))}
+                </div>
+            </Swiper>
             <div className="comment__input">
                 <div className="commentWrap">
                     <input
@@ -132,12 +129,20 @@ const CommentWrap = () => {
                         value={desc}
                     />
                     <button
-                        onClick={(e) => addPost(e, desc, pass, name, setPostList, setSortPostList)}
+                        onClick={(e) =>
+                            addPost(
+                                e,
+                                desc,
+                                pass,
+                                name,
+                                setPostList,
+                                setSortPostList
+                            )
+                        }
                     >
                         댓글 쓰기
                     </button>
                 </div>
-
             </div>
         </div>
     );

@@ -1,5 +1,12 @@
 import axios from "axios";
 
+const sortAscPostList = (posts) => {
+    return [...posts].sort((a, b) => a.postNum - b.postNum);
+};
+
+const sortDescPostList = (posts) => {
+    return [...posts].sort((a, b) => b.postNum - a.postNum);
+};
 const list = (setPostList, setSortPostList) => {
     axios
         .get("/api/post/list")
@@ -7,15 +14,10 @@ const list = (setPostList, setSortPostList) => {
             console.log(res.data); // 이 부분을 추가
 
             if (res.data.success) {
-                setPostList(res.data.postList);
-                const sortedPostList = [...res.data.postList]
-                    .sort((a, b) => {
-                        if (a.postNum < b.postNum) return -1;
-                        if (a.postNum > b.postNum) return 1;
-                        return 0;
-                    })
-                    .reverse();
-                setSortPostList(sortedPostList);
+                // 내림차순으로 정렬된 목록을 상태에 설정
+                setPostList(sortDescPostList(res.data.postList));
+                // 오름차순으로 정렬된 목록을 상태에 설정
+                setSortPostList(sortAscPostList(res.data.postList));
                 console.log("axios list");
             }
         })

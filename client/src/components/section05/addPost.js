@@ -1,5 +1,17 @@
 import axios from "axios";
 
+const sortAscPostList = (posts) => {
+    return [...posts].sort((a, b) => a.postNum - b.postNum);
+};
+
+const sortDescPostList = (posts) => {
+    return [...posts].sort((a, b) => b.postNum - a.postNum);
+};
+const updatePostLists = (newPost, setPostList, setSortPostList) => {
+    setPostList((prevPosts) => sortDescPostList([newPost, ...prevPosts]));
+    setSortPostList((prevPosts) => sortAscPostList([newPost, ...prevPosts]));
+};
+
 const addPost = async (e, desc, pass, name, setPostList, setSortPostList) => {
     e.preventDefault();
 
@@ -13,18 +25,11 @@ const addPost = async (e, desc, pass, name, setPostList, setSortPostList) => {
             .post("/api/post/write", body)
             .then((res) => {
                 if (res.data.success) {
-                    setPostList((prevPosts) => [
+                    updatePostLists(
                         res.data.newPost,
-                        ...prevPosts,
-                    ]);
-                    const sortedPostList = [...res.data.postList]
-                    .sort((a, b) => {
-                        if (a.postNum < b.postNum) return -1;
-                        if (a.postNum > b.postNum) return 1;
-                        return 0;
-                    })
-                    .reverse();
-                setSortPostList(sortedPostList);
+                        setPostList,
+                        setSortPostList
+                    );
                     alert("댓글 작성이 완료되었습니다.");
                 } else {
                     console.log("axios실패");

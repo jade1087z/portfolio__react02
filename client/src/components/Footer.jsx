@@ -6,34 +6,32 @@ const Footer = () => {
         <div id="footer">
             <div className="title">
                 <div className="t1">contact</div>
-                <div className="t2">contact@naver.com</div>
+                <div className="t2">danziro97@naver.com</div>
                 <div className="list">
-                    <ul>
+                    {/*<ul>
                         <li>
                             <strong>site</strong>
                         </li>
-                        <li>
-                            <Link to={"#"}>github</Link>
-                        </li>
+                        <li></li>
                         <li>
                             <Link to={"#"}>codepen</Link>
                         </li>
                         <li>
                             <Link to={"#"}>blog</Link>
                         </li>
-                    </ul>
+                     </ul>*/}
                     <ul>
                         <li>
-                            <strong>public</strong>
+                            <strong>useStack</strong>
                         </li>
                         <li>
-                            <Link to={"#"}>webstandard</Link>
+                            <Link to={"#"}>Javascript</Link>
                         </li>
                         <li>
-                            <Link to={"#"}>html/css</Link>
+                            <Link to={"#"}>node.js</Link>
                         </li>
                         <li>
-                            <Link to={"#"}>phython</Link>
+                            <Link to={"#"}>react.js</Link>
                         </li>
                     </ul>
                     <ul>
@@ -41,10 +39,12 @@ const Footer = () => {
                             <strong>site</strong>
                         </li>
                         <li>
-                            <Link to={"#"}>react</Link>
+                            <Link to={"https://github.com/jade1087z"}>
+                                github
+                            </Link>
                         </li>
                         <li>
-                            <Link to={"#"}>next</Link>
+                            <Link to={"#"}>react</Link>
                         </li>
                         <li>
                             <Link to={"#"}>node</Link>
@@ -55,19 +55,13 @@ const Footer = () => {
                     </ul>
                     <ul>
                         <li>
-                            <strong>css</strong>
+                            <strong>profile</strong>
                         </li>
                         <li>
-                            <Link to={"#"}>blog</Link>
+                            <Link to={"#"}>임종한</Link>
                         </li>
                         <li>
-                            <Link to={"#"}>shop</Link>
-                        </li>
-                        <li>
-                            <Link to={"#"}>node</Link>
-                        </li>
-                        <li>
-                            <Link to={"#"}>php</Link>
+                            <Link to={"#"}>010.7180.2384</Link>
                         </li>
                     </ul>
                 </div>
